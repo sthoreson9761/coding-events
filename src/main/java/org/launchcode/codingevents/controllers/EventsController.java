@@ -20,21 +20,11 @@ public class EventsController {
 //    private static ArrayList<String> events = new ArrayList<>();
     private static HashMap<String,String> events = new HashMap<>();
 
-    public static void setEvents(HashMap<String, String> events) {
-        EventsController.events = events;
-    }
-
-    public static HashMap<String, String> getEvents() {
-        events.put("ECGC", "East Coast Gaming Conference");
-        events.put("GameJam", "Groups of participants are given 49 hours to create a game based on a theme");
-        events.put("CodeJam","Put your coding skills to the test as you work your way through multiple rounds of algorithmic coding puzzles for the title of Code Jam Champ and $15,000 USD.");
-        return events;
-    }
     // Lives at /events
     @GetMapping("")
     public String displayAllEvents(Model model) {
 
-        model.addAttribute("events", getEvents());
+        model.addAttribute("events", events);
         model.addAttribute("title", "All Events");
 
         return "events/index";
